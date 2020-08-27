@@ -51,12 +51,17 @@ public class ObjectStreamAPIs {
 		} else {
 			System.out.println("\n Name " + nameToFind + " not found ");
 		}
-
 	}
 
 	public void namesToList(List<Person> testList) {
 
 		System.out.println("names list = " + testList.stream().map(Person::getName).collect(Collectors.toList()));
+
+	}
+
+	public void sumOfSlaaries(List<Person> testList) {
+		System.out.println(
+				"Salary sum = " + testList.stream().map(Person::getSalary).reduce(0l, (Long a, Long b) -> a + b));
 
 	}
 

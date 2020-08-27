@@ -15,14 +15,14 @@ public class IntStreamAPIs {
 
 	public void sort(int[] array) {
 
-		int[] duplicateArray = IntStream.of(array).sorted().toArray();
+		int[] duplicateArray = Arrays.stream(array).sorted().toArray();
 		this.printArray("\nSorted Array ", duplicateArray);
 
 	}
 
 	public void findStats(int[] array) {
 
-		IntSummaryStatistics stats = IntStream.of(array).summaryStatistics();
+		IntSummaryStatistics stats = Arrays.stream(array).summaryStatistics();
 		System.out.println("\nStats are as follows :");
 		System.out.println("Max : " + stats.getMax());
 		System.out.println("Min : " + stats.getMin());
@@ -33,18 +33,18 @@ public class IntStreamAPIs {
 	}
 
 	public void findTop(int[] array, int count) {
-		int[] topArray = IntStream.of(array).boxed().sorted(Collections.reverseOrder()).limit(3)
+		int[] topArray = Arrays.stream(array).boxed().sorted(Collections.reverseOrder()).limit(3)
 				.mapToInt(i -> i.intValue()).toArray();
 		this.printArray("\nTop" + count + " elements ", topArray);
 	}
 
 	public void findEven(int array[]) {
-		int[] evenArray = IntStream.of(array).filter(i -> i % 2 == 0).toArray();
+		int[] evenArray = Arrays.stream(array).filter(i -> i % 2 == 0).toArray();
 		this.printArray("\nEven elements ", evenArray);
 	}
 
 	public void hasOddValue(int array[]) {
-		boolean hasOddValue = IntStream.of(array).anyMatch(i -> i % 2 != 0);
+		boolean hasOddValue = Arrays.stream(array).anyMatch(i -> i % 2 != 0);
 		System.out.println("\nHas odd vaule = " + hasOddValue);
 	}
 
@@ -54,7 +54,7 @@ public class IntStreamAPIs {
 	}
 
 	public void reduceToProductOfElements(int[] testArray) {
-		OptionalInt product = IntStream.of(testArray).reduce((i, j) -> i * j);
+		OptionalInt product = Arrays.stream(testArray).reduce((i, j) -> i * j);
 		System.out.println("\nHas odd vaule = " + product.getAsInt());
 	}
 

@@ -28,7 +28,7 @@ public class Main {
 		streamAPIs.printIsNamePresent("Niko" ,testList);
 		streamAPIs.printIfNamePresent("Niko" ,testList);
 		streamAPIs.namesToList(testList);
-		
+		streamAPIs.sumOfSlaaries(testList);
 	}
 
 	private static void testIntStreamAPIs() {
