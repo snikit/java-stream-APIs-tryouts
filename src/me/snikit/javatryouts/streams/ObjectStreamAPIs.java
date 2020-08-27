@@ -54,5 +54,10 @@ public class ObjectStreamAPIs {
 
 	}
 
+	public void namesToList(List<Person> testList) {
+
+		System.out.println("names list = " + testList.stream().map(Person::getName).collect(Collectors.toList()));
+
+	}
 
 }

@@ -27,6 +27,7 @@ public class Main {
 		streamAPIs.createMapWithNamesAsKey(testList);
 		streamAPIs.printIsNamePresent("Niko" ,testList);
 		streamAPIs.printIfNamePresent("Niko" ,testList);
+		streamAPIs.namesToList(testList);
 		
 	}
 
@@ -44,7 +45,7 @@ public class Main {
 		streamAPIs.printRangeArray(1,20);
 		streamAPIs.reduceToProductOfElements(testArray);
 		streamAPIs.iterateAndPrint(testArray);
-	
+		
 	}
 	
 
