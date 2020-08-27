@@ -1,6 +1,11 @@
 package me.snikit.javatryouts;
 
+import java.util.List;
+
 import me.snikit.javatryouts.streams.IntStreamAPIs;
+import me.snikit.javatryouts.streams.ObjectStreamAPIs;
+import me.snikit.javatryouts.streams.model.Person;
+import me.snikit.javatryouts.streams.model.PersonService;
 
 public class Main {
 
@@ -11,7 +16,17 @@ public class Main {
 	}
 
 	private static void testObjectStreamAPIs() {
-		// TODO Auto-generated method stub
+		PersonService personService = new PersonService();
+		List<Person> testList = personService .getPersonData();
+		ObjectStreamAPIs streamAPIs = new ObjectStreamAPIs();
+		
+		System.out.println("Test list = " + testList.toString());
+		streamAPIs.sortBySalary(testList);
+		streamAPIs.getTopSalariedEmployees(testList , 3);
+		streamAPIs.getNameList(testList);
+		streamAPIs.createMapWithNamesAsKey(testList);
+		streamAPIs.printIsNamePresent("Niko" ,testList);
+		streamAPIs.printIfNamePresent("Niko" ,testList);
 		
 	}
 
@@ -28,6 +43,9 @@ public class Main {
 		streamAPIs.hasOddValue(testArray);
 		streamAPIs.printRangeArray(1,20);
 		streamAPIs.reduceToProductOfElements(testArray);
+		streamAPIs.iterateAndPrint(testArray);
+	
 	}
+	
 
 }

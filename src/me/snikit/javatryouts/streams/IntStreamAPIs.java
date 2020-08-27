@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.IntSummaryStatistics;
 import java.util.OptionalInt;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class IntStreamAPIs {
 
@@ -55,6 +56,12 @@ public class IntStreamAPIs {
 	public void reduceToProductOfElements(int[] testArray) {
 		OptionalInt product = IntStream.of(testArray).reduce((i, j) -> i * j);
 		System.out.println("\nHas odd vaule = " + product.getAsInt());
+	}
+
+	public void iterateAndPrint(int[] testArray) {
+		System.out.println("\n Iterating wit Stream APi" );
+		Stream.iterate( 0 , i -> i+1).limit(testArray.length).forEach( i -> System.out.println(testArray[i]));
+		
 	}
 
 }
