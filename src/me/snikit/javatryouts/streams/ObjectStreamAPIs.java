@@ -59,10 +59,27 @@ public class ObjectStreamAPIs {
 
 	}
 
-	public void sumOfSlaaries(List<Person> testList) {
+	public void sumOfSalaries(List<Person> testList) {
 		System.out.println(
-				"Salary sum = " + testList.stream().map(Person::getSalary).reduce(0l, (Long a, Long b) -> a + b));
+				"Salary sum = " + testList.stream().collect(Collectors.summingLong(Person::getSalary)));
 
+	}
+
+	public void salarayStats(List<Person> testList) {
+		System.out.println(
+				"Salary stats = " + testList.stream().collect(Collectors.summarizingLong(Person::getSalary)));
+
+
+		
+	}
+
+	public void groupBySalary(List<Person> testList, int amount) {
+		System.out.println(
+				"Salary groups = " + testList.stream().collect(Collectors.partitioningBy( e -> e.getSalary() > amount)));
+		
+
+
+		
 	}
 
 }

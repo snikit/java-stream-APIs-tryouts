@@ -28,7 +28,9 @@ public class Main {
 		streamAPIs.printIsNamePresent("Niko" ,testList);
 		streamAPIs.printIfNamePresent("Niko" ,testList);
 		streamAPIs.namesToList(testList);
-		streamAPIs.sumOfSlaaries(testList);
+		streamAPIs.sumOfSalaries(testList);
+		streamAPIs.salarayStats(testList);
+		streamAPIs.groupBySalary(testList , 35);
 	}
 
 	private static void testIntStreamAPIs() {
