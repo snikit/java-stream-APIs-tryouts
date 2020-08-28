@@ -4,9 +4,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import me.snikit.javatryouts.streams.model.Person;
+import me.snikit.javatryouts.streams.data.Person;
 
 public class ObjectStreamAPIs {
 
@@ -60,26 +61,26 @@ public class ObjectStreamAPIs {
 	}
 
 	public void sumOfSalaries(List<Person> testList) {
-		System.out.println(
-				"Salary sum = " + testList.stream().collect(Collectors.summingLong(Person::getSalary)));
+		System.out.println("Salary sum = " + testList.stream().collect(Collectors.summingLong(Person::getSalary)));
 
 	}
 
 	public void salarayStats(List<Person> testList) {
-		System.out.println(
-				"Salary stats = " + testList.stream().collect(Collectors.summarizingLong(Person::getSalary)));
+		System.out
+				.println("Salary stats = " + testList.stream().collect(Collectors.summarizingLong(Person::getSalary)));
 
-
-		
 	}
 
 	public void groupBySalary(List<Person> testList, int amount) {
 		System.out.println(
-				"Salary groups = " + testList.stream().collect(Collectors.partitioningBy( e -> e.getSalary() > amount)));
-		
+				"Salary groups = " + testList.stream().collect(Collectors.partitioningBy(e -> e.getSalary() > amount)));
 
+	}
 
-		
+	public void printSalaries(List<Person> testList, Predicate<Long> selector) {
+
+		testList.stream().map(Person::getSalary).filter(selector).forEach(System.out::println);
+
 	}
 
 }

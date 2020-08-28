@@ -1,4 +1,4 @@
-package me.snikit.javatryouts.streams.model;
+package me.snikit.javatryouts.streams.data;
 
 public class Person {
 
