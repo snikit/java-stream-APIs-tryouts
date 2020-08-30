@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -81,6 +82,16 @@ public class ObjectStreamAPIs {
 
 		testList.stream().map(Person::getSalary).filter(selector).forEach(System.out::println);
 
+	}
+
+	public void printEvenOrZeroSalary(List<Person> testList, Function<Long,Long> object) {
+		System.out.println("\neven or zero salary");
+		testList.stream().map(Person::getSalary).forEach( e ->{
+			long out = object.apply(e);
+			System.out.println(out);
+		});
+
+		
 	}
 
 }

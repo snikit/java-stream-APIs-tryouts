@@ -2,6 +2,7 @@ package me.snikit.javatryouts;
 
 import java.util.List;
 
+import me.snikit.javatryouts.lambdas.ConsumerLambdaSample;
 import me.snikit.javatryouts.streams.IntStreamAPIs;
 import me.snikit.javatryouts.streams.NumberUtil;
 import me.snikit.javatryouts.streams.ObjectStreamAPIs;
@@ -12,8 +13,16 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		// streams
+
 		testIntStreamAPIs();
 		testObjectStreamAPIs();
+
+		// lambdas
+		ConsumerLambdaSample.use(consumerLambdaSampleInstance -> {
+			consumerLambdaSampleInstance.performIOOperation( );
+		});
+
 	}
 
 	private static void testObjectStreamAPIs() {
@@ -40,6 +49,7 @@ public class Main {
 		streamAPIs.printSalaries(testList, NumberUtil::isEven);
 		System.out.println("\nodd salaries");
 		streamAPIs.printSalaries(testList, NumberUtil::isOdd);
+		streamAPIs.printEvenOrZeroSalary(testList, NumberUtil.returnEvenOrZero);
 	}
 
 	private static void testIntStreamAPIs() {
