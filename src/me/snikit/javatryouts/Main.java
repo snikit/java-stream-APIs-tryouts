@@ -2,7 +2,8 @@ package me.snikit.javatryouts;
 
 import java.util.List;
 
-import me.snikit.javatryouts.lambdas.ConsumerLambdaSample;
+import me.snikit.javatryouts.designs.ExecuteAround;
+import me.snikit.javatryouts.designs.LazyGet;
 import me.snikit.javatryouts.streams.IntStreamAPIs;
 import me.snikit.javatryouts.streams.NumberUtil;
 import me.snikit.javatryouts.streams.ObjectStreamAPIs;
@@ -19,9 +20,15 @@ public class Main {
 		testObjectStreamAPIs();
 
 		// lambdas
-		ConsumerLambdaSample.use(consumerLambdaSampleInstance -> {
-			consumerLambdaSampleInstance.performIOOperation( );
+		ExecuteAround.use(consumerLambdaSampleInstance -> {
+			consumerLambdaSampleInstance.performIOOperation();
 		});
+
+		// ****** designs
+
+		// testing lazy get
+		System.out.println("\n testing lazy get");
+		LazyGet.testLazyGet();
 
 	}
 

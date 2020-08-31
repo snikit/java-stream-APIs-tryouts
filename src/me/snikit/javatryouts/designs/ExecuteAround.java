@@ -1,14 +1,14 @@
-package me.snikit.javatryouts.lambdas;
+package me.snikit.javatryouts.designs;
 
 import java.util.function.Consumer;
 
 // Loan design pattern or execute around pattern
-public class ConsumerLambdaSample {
+public class ExecuteAround {
 
-	private static ConsumerLambdaSample managedInstance;
+	private static ExecuteAround managedInstance;
 
-	public static void use(Consumer<ConsumerLambdaSample> block) {
-		managedInstance = new ConsumerLambdaSample();
+	public static void use(Consumer<ExecuteAround> block) {
+		managedInstance = new ExecuteAround();
 
 		try {
 			block.accept(managedInstance);
